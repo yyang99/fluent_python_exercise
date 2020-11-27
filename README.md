@@ -1,1 +1,1 @@
-# fluent_python_exercises
+# fluent_python_exercise
