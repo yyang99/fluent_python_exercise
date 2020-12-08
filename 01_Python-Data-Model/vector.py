@@ -19,3 +19,11 @@ class Vector:
 
     def __mul__(self, scaler):
         return Vector(self.x * scaler, self.y * scaler)
+
+if __name__ == "__main__":
+    v1 = Vector(3,4)
+    print(f"{v1}")
+    print(f"hypotenus = {abs(v1)}")
+    print(f"{bool(v1)}")
+    v2 = Vector(1, 2)
+    print(v1+v2)
