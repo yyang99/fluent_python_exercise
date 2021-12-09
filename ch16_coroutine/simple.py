@@ -1,4 +1,19 @@
+
+'''
+>>> coro_avg = average()
+>>> from inspect import getgeneratorstate
+>>> getgeneratorstate(coro_avg)
+'GEN_SUSPENDED'
+>>> coro_avg.send(10)
+10.0
+>>> coro_avg.send(30)
+20.0
+>>> coro_avg.send(5)
+15.0
+'''
+
 import inspect
+from coroutine import coroutine
 
 def simple_coroutine():
     print('-> coroutine started')
@@ -12,12 +27,7 @@ def simple_coro2(a):
     c = yield a + b
     print('-> Received: c =', c)
 
-def coroutine(func):
-    def primer(*args, **kwargs):
-        g = func(*args, **kwargs)
-        next(g)
-        return g
-    return primer
+
 
 @coroutine
 def average():
@@ -29,3 +39,5 @@ def average():
         n += 1
         total += a
         average = total/n
+
+
