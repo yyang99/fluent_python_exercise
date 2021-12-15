@@ -28,9 +28,9 @@ def main(data):
         next(group)
         for value in values:
             group.send(value)
-        group.send(None)
+        # group.send(None)
 
-    print(results)
+        print(results)
     report(results)
 
 def report(results):
