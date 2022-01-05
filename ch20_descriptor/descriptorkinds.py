@@ -53,3 +53,15 @@ class Managed:
 
     def spam(self):
         print('-> Managed.spam({})'.format(display(self)))
+
+if __name__ == '__main__':
+    obj = Managed()
+    print('before obj.non_over = 7 ===> ', obj.non_over)
+    obj.non_over = 7
+    print('aftger obj.non_over = 7 ===> ', obj.non_over)
+
+    print('before obj.over_no_get = 9 ===> ', obj.over_no_get)
+    obj.over_no_get = 9 # the over_no_get.__set__ only print not really set variable
+    print('aftger obj.over_no_get = 9 (note no set instance attribute in __set__) ===> ', obj.over_no_get) # note this do not have instance attribute set from previous step
+    obj.__dict__['over_no_get'] = 9
+    print("obj.__dict__['over_no_get'] = 9 ===> ", obj.over_no_get)
